@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ServicefarahModule } from './servicefarah/servicefarah.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServicefarahModule
   ],
   providers: [],
   bootstrap: [AppComponent]
