@@ -12,6 +12,11 @@ const routes: Routes = [
     path:'subscription',
     loadChildren:()=>
     import('./subscription/subscription.module').then((s) => s.SubscriptionModule),
+  },
+  {
+    path:'commande',
+    loadChildren:() =>
+      import('./commande/commande.module').then((c) => c.CommandeModule),
   }
 ];
 
