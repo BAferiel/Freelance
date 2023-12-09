@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReclamationComponent } from './reclamation.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:"addreclamation",
+    component:ReclamationComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
