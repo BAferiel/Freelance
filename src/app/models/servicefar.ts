@@ -1,5 +1,5 @@
 export class Service{
-    idService!:number;
+    idService!: number;
     title!:string;
     description!:string;
     tarif!: number;
