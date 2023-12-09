@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Service } from '../models/servicefar';
-import { Observable } from 'rxjs';
+import {Observable, tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,8 @@ export class ServicefarahService {
     return this._http.post<Service>("http://localhost:8083/ServiceE",service);
   }
   getServiceFromDB():Observable<Service[]>{
-    return this._http.get<Service[]>("http://localhost:8083/ServiceE/getallservice");
+    return this._http.get<Service[]>("http://localhost:8083/ServiceE/getallservice").pipe(
+        tap(data => console.log('Data from server:', data)),);
   }
   getservicebyid(idService:number):Observable<Service>{
     return this._http.get<Service>("http://localhost:8083/ServiceE/getServiceByid/"+idService)
