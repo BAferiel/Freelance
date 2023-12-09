@@ -7,6 +7,11 @@ const routes: Routes = [
     path:'service',
     loadChildren:() =>
      import('./servicefarah/servicefarah.module').then((u) => u.ServicefarahModule),
+  },
+  {
+    path:'subscription',
+    loadChildren:()=>
+    import('./subscription/subscription.module').then((s) => s.SubscriptionModule),
   }
 ];
 
