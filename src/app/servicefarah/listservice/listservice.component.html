@@ -211,8 +211,8 @@
                 <td>{{servicefa.tarif}}</td>
                 <td>{{servicefa.dure}}</td>
                 <td>{{servicefa.image}}</td>
-                <td><button [routerLink]="['/reviews',{servicefa:servicefa.title}]" ]>View Reviews</button></td>
-                <td><button type="button"    (click)="DeleteSubscription(servicefa)" class="btn btn-danger">Delete</button></td>
+                <td><button [routerLink]="['/reviews', { servicefa: servicefa.title }]">View Reviews</button></td>
+                <td><button type="button"    (click)="deleteSubscription(servicefa)" class="btn btn-danger">Delete</button></td>
             <td><button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=" information(servicefa)">Update</button></td>
               </tr>
         </tbody>

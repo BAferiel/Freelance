@@ -11,7 +11,6 @@ import {CommandeModule} from "./commande/commande.module";
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,

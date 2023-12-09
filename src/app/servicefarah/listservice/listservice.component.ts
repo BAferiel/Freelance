@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Route } from '@angular/router';
 import { ServicefarahService } from 'src/app/Service/servicefarah.service';
 import { Service } from 'src/app/models/servicefar';
@@ -8,52 +8,51 @@ import { Service } from 'src/app/models/servicefar';
   templateUrl: './listservice.component.html',
   styleUrls: ['./listservice.component.css']
 })
-export class ListserviceComponent {
-  list:Service[]=[];
-  servicefa:Service=new Service();
+export class ListserviceComponent implements OnInit{
+  list: Service[] = [];
+  servicefa: Service = new Service();
+  servicetoupdate: Service = {
+    idService: 0,
+    title: "",
+    description: "",
+    tarif: 0,
+    dure: 0,
+    image: ""
+  };
 
-  servicetoupdate:Service={
-    idService:0,
-    title:"",
-    description:"",
-    tarif:0,
-    dure:0,
-    image:""
-    
-    }
-  constructor( private us:ServicefarahService ){}
-  ngOnInit(){
-  this.fetchservice()
+  constructor(private us: ServicefarahService) {}
+
+  ngOnInit(): void {
+    this.fetchService();
   }
 
-  fetchservice(){
+  fetchService(): void {
     this.us.getServiceFromDB().subscribe(
-      (res: Service[]) => {
-        console.log('Données reçues de l\'API : ', res);
-        this.list = res;
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des données : ', error);
-      }
+        (res: Service[]) => {
+          this.list = res;
+        },
+        (error) => {
+          console.error('Error fetching services:', error);
+        }
     );
-      
-   
-
   }
-  information(service:Service){
-    this.servicetoupdate=service;
-  }  
 
-  updateService(){
-    this.us.Updateservice(this.servicetoupdate.idService,this.servicefa).subscribe(data =>{
-      console.log(data);
-      this.servicefa = new Service();
-    },error =>console.log(error));
-    
+  information(service: Service): void {
+    this.servicetoupdate = service;
   }
- 
- 
-  DeleteSubscription(service: Service): void {
+
+  updateService(): void {
+    this.us.Updateservice(this.servicetoupdate.idService, this.servicefa).subscribe(
+        (data) => {
+          console.log(data);
+          this.servicefa = new Service();
+        },
+        (error) => console.log(error)
+    );
+  }
+
+
+  deleteSubscription(service: Service): void {
     const isConfirmed = confirm('Are you sure you want to delete this service?');
     if (isConfirmed) {
       this.us.removeService(service.idService).subscribe(
