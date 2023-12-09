@@ -1,4 +1,5 @@
 
+
 <body class="g-sidenav-show  bg-gray-200">
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
       <div class="sidenav-header">
@@ -102,9 +103,9 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Service</li>
+              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Reclamation</li>
             </ol>
-            <h6 class="font-weight-bolder mb-0">Service</h6>
+            <h6 class="font-weight-bolder mb-0">Reclamation</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -215,98 +216,50 @@
       </nav>
      <!--  body reclamation -->
       <section>
-    
+     <!-- reclamation-form.component.html -->
+  
+  <!-- reclamation-form.component.html -->
   
   <div class="container">
-    <div class="container-fluid py-4">
-        <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 marge-a-gauche  ">
-        <div class="card mb-4">
-        <div class="card-header pb-0">
-        <h6>Table Service</h6>
-        </div>
-        <div class="card-body px-0 pt-0 pb-2">
-        <div class="table-responsive p-0">
-        <table class="table align-items-center mb-0">
-        <thead>
-        <tr>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>   
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tarif</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dure </th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">image </th>
-        <th class="text-secondary opacity-7"></th>
-        <th class="text-secondary opacity-7"></th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let servicefa of list">
-            
-                <td>{{servicefa.idService}}</td>
-                <td>{{servicefa.title}}</td>
-                <td>{{servicefa.description}}</td>
-                <td>{{servicefa.tarif}}</td>
-                <td>{{servicefa.dure}}</td>
-                <td>{{servicefa.image}}</td>
-                <td><button type="button"    (click)="DeleteSubscription(servicefa)" class="btn btn-danger">Delete</button></td>
-            <td><button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=" information(servicefa)">Update</button></td>
-              </tr>
-        </tbody>
-        </table>
-        <button type="button" class="btn btn-dark" [routerLink]="['/addservice']">Ajoute</button>
-    </div>
-</div>
-</div>
-</div>
-</div>
-    </div>
-    <div class="modal fade"  #exampleModal tabindex="-1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Update service</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     <form class="form-container justify-content-center" (submit)="AddReclamation()" #registrationForm="ngForm">
+        <div class="form-header font-weight-bolder text-dark  mb-3 ">Add Reclamation</div>
+        <div class="form-row">
+          <div class="col-md-12">
+            <label class="form-label">Subject</label>
+            <div class="input-group input-group-outline my-3">
+              <input type="text" placeholder="subject" class="form-control" [(ngModel)]="reclamation.subject" #subj="ngModel" name="subject" required>
             </div>
-            <div class="modal-body">
-             
-    
-    <body>
-     
-        <form #f="ngForm" class="form-group has-success">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Title</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="Titre" [(ngModel)]="servicefa.title" #titl="ngModel"  placeholder="ntitleom"  pattern="[a-zA-Z]*" required>
-              
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Date</label>
+            <div class="input-group input-group-outline my-3">
+              <input type="date" class="form-control" [(ngModel)]="reclamation.date" #d="ngModel" name="date" >
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Description</label>
-                <input type="text" class="form-control" id="exampleInputPassword1"name="description" [(ngModel)]="servicefa.description" #desc="ngModel" placeholder="description" required>
-               
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">tarif</label>
-                <input type="text" class="form-control" id="exampleInputPassword1"name="tarif" [(ngModel)]="servicefa.tarif" #desc="ngModel" placeholder="tarif" required>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Dure</label>
-                <input type="text" class="form-control" id="exampleInputPassword1"name="dure" [(ngModel)]="servicefa.dure" #du="ngModel" placeholder="dure" required>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Image</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="image" [(ngModel)]="servicefa.image" #img="ngModel" placeholder="image" required>
-            </div>
-            <button  class="btn btn-primary" (click)="updateService()" [disabled]="f.invalid">Submit</button>
-        </form>
-      </body>
-      
-              
-            </div>
-           
           </div>
         </div>
-      </div>
-  </div>
+        <div class="form-row">
+          <div class="col-md-12">
+            <label class="form-label">Status</label>
+            <div class="input-group input-group-outline my-3">
+              <input type="text" placeholder="status" class="form-control" [(ngModel)]="reclamation.status" #stat="ngModel" name="status" >
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12">
+            <label class="form-label">Description</label>
+            <div class="input-group input-group-outline my-3">
+              <textarea class="form-control" placeholder="description" [(ngModel)]="reclamation.description" #desc="ngModel" name="description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Add Reclamation</button>
+          </div>
+        </div>
+      </form>
+    </div>
     
     
       </section>

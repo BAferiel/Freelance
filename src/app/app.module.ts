@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReclamationModule } from './reclamation/reclamation.module';
 import { ServicefarahModule } from './servicefarah/servicefarah.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ReclamationComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -19,7 +19,7 @@ import { SubscriptionModule } from './subscription/subscription.module';
     HttpClientModule,
     FormsModule,
     ServicefarahModule,
-    SubscriptionModule,
+    SubscriptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
