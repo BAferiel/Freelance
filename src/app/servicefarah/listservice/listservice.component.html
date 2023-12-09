@@ -102,9 +102,9 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Reclamation</li>
+              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Service</li>
             </ol>
-            <h6 class="font-weight-bolder mb-0">Reclamation</h6>
+            <h6 class="font-weight-bolder mb-0">Service</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -223,14 +223,14 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 marge-a-gauche  ">
         <div class="card mb-4">
         <div class="card-header pb-0">
-        <h6>Table Universite</h6>
+        <h6>Table Service</h6>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
         <div class="table-responsive p-0">
         <table class="table align-items-center mb-0">
         <thead>
         <tr>
-            
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>   
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tarif</th>
@@ -241,15 +241,15 @@
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let servic of list">
+            <tr *ngFor="let servicefa of list">
             
-                
-                <td>{{servic.title}}</td>
-                <td>{{servic.description}}</td>
-                <td>{{servic.tarif}}</td>
-                <td>{{servic.dure}}</td>
-                <td>{{servic.image}}</td>
-                <td><button type="button"    (click)="deleteservice($event,servicefa)" class="btn btn-danger">Delete</button></td>
+                <td>{{servicefa.idService}}</td>
+                <td>{{servicefa.title}}</td>
+                <td>{{servicefa.description}}</td>
+                <td>{{servicefa.tarif}}</td>
+                <td>{{servicefa.dure}}</td>
+                <td>{{servicefa.image}}</td>
+                <td><button type="button"    (click)="DeleteSubscription(servicefa)" class="btn btn-danger">Delete</button></td>
             <td><button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=" information(servicefa)">Update</button></td>
               </tr>
         </tbody>
@@ -296,7 +296,7 @@
                 <label for="exampleInputPassword1">Image</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name="image" [(ngModel)]="servicefa.image" #img="ngModel" placeholder="image" required>
             </div>
-            <button  class="btn btn-primary" (click)="updateservice()" [disabled]="f.invalid">Submit</button>
+            <button  class="btn btn-primary" (click)="updateService()" [disabled]="f.invalid">Submit</button>
         </form>
       </body>
       
