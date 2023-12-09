@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReclamationModule } from './reclamation/reclamation.module';
+import { ReclamationModule } from './reclamation/reclamation.module';
 import { ServicefarahModule } from './servicefarah/servicefarah.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 @NgModule({
@@ -18,6 +19,7 @@ import { SubscriptionModule } from './subscription/subscription.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReclamationModule,
     ServicefarahModule,
     SubscriptionModule
   ],
