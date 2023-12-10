@@ -8,19 +8,21 @@ import { ReclamationModule } from './reclamation/reclamation.module';
 import { ServicefarahModule } from './servicefarah/servicefarah.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 import {CommandeModule} from "./commande/commande.module";
+import {PaymentModule} from "./payment/payment.module";
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    ReclamationModule,
+    ServicefarahModule,
+    SubscriptionModule,
+    CommandeModule,
+    PaymentModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReclamationModule,
-    ServicefarahModule,
-    SubscriptionModule,
-    CommandeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

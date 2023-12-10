@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AddPaymentComponent} from "./payment/add-payment/add-payment.component";
 
 const routes: Routes = [
   {path: 'reclamation', loadChildren : () => import('./reclamation/reclamation.module').then(m=>m.ReclamationModule)},
@@ -22,6 +23,9 @@ const routes: Routes = [
     path:'category',
     loadChildren:() =>
       import('./category/category.module').then((category) => category.CategoryModule),
+  },
+  {
+   path: 'payment', component: AddPaymentComponent
   }
 ];
 

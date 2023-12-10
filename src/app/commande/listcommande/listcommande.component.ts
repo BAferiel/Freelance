@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommandeService } from 'src/app/Service/commande.service';
 import { Commande, StatusCommande } from 'src/app/models/commande';
+import {Router} from "@angular/router";
+import {PaymentService} from "../../Service/payment.service";
 
 @Component({
   selector: 'app-listcommande',
@@ -19,9 +21,9 @@ export class ListcommandeComponent {
     dateCommande: new Date(),
     price:0,
   }
-  
 
-  constructor(private cs:CommandeService){}
+
+  constructor(private cs:CommandeService,private router: Router, private paymentService: PaymentService){}
 
   ngOnInit(): void{
     this.fetchcommande()
@@ -35,7 +37,7 @@ export class ListcommandeComponent {
 }
   informationcommande(commande:Commande){
     this.commandetoupdate=commande;
-    
+
   }
 
   updatecommande() {
@@ -57,7 +59,12 @@ export class ListcommandeComponent {
       this.cs.deleteCommandeFromDb(com.idCommande).subscribe(()=>this.fetchcommande());
     }
   }
-  
-  
+
+  payForCommande(commande: any){
+    this.paymentService.updateAmount(commande.price)
+    this.router.navigate(['/payment'])
+  }
+
+
 
 }
