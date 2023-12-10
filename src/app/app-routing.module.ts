@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren:() =>
       import('./commande/commande.module').then((c) => c.CommandeModule),
   }
+  ,{
+    path:'category',
+    loadChildren:() =>
+      import('./category/category.module').then((category) => category.CategoryModule),
+  }
 ];
 
 @NgModule({
