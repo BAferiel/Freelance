@@ -1,27 +1,49 @@
-# Freelance
+# Angular Project Route Descriptions
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+This section describes the path names and associated services/modules in the Angular project.
 
-## Development server
+## Path Names and Associated Services
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### `/reclamation`
 
-## Code scaffolding
+- **Description**: Route for Reclamation functionalities.
+- **Associated Module**: `ReclamationModule`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### `/service`
 
-## Build
+- **Description**: Route related to services.
+- **Associated Module**: `ServicefarahModule`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### `/subscription`
 
-## Running unit tests
+- **Description**: Route for subscription management.
+- **Associated Module**: `SubscriptionModule`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### `/commande`
 
-## Running end-to-end tests
+- **Description**: Route for handling commands.
+- **Associated Module**: `CommandeModule`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### `/category`
 
-## Further help
+- **Description**: Route related to category operations.
+- **Associated Module**: `CategoryModule`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### `/payment`
+
+- **Description**: Route for payment-related functionalities.
+- **Component**: `AddPaymentComponent`
+
+### `/` (Root)
+
+- **Description**: Root route, often used for login or landing page.
+- **Associated Module**: `LoginModule`
+
+### `/welcome`
+
+- **Description**: Route for the welcome page or user dashboard.
+- **Associated Module**: `WelcomeModule`
+
+These routes are configured in the `AppRoutingModule` file, enabling navigation and lazy-loading of modules when the corresponding route is accessed.
+
+Adjust the descriptions and paths according to the actual functionalities and module names in your Angular project.
