@@ -15,7 +15,7 @@ const routes: Routes = [
     component:AddserviceComponent
   },
   {
-    path:'reviews',
+    path:'reviews/:serviceName',
     component:ListReviewComponent
   },
   {

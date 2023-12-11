@@ -19,18 +19,23 @@ export class ListReviewComponent implements OnInit{
       this.loadReviews();
     })
   }
-    loadReviews()
-    {
-      this.rs.getReviewsByService(this.serviceName).subscribe(data => {
-        this.reviews = data;
-      })
-    }
+  loadReviews() {
+    console.log('Service Name:', this.serviceName);
+    this.rs.getReviewsByService(this.serviceName).subscribe(data => {
+      console.log('Reviews:', data);
+      this.reviews = data;
+    });
+  }
 
-    deleteReview(review: Review){
+  deleteReview(review: Review) {
     this.rs.deleteReview(review.idReview).subscribe(() => {
-      this.loadReviews();
-    })
-    }
+      this.reviews = this.reviews.filter((r) => r.idReview !== review.idReview);
+    });
+  }
+
+  getRatingArray(rating: number): number[] {
+    return new Array(rating);
+  }
 
 
 }
