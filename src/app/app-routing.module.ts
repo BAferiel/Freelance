@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AddPaymentComponent} from "./payment/add-payment/add-payment.component";
+import {AuthGuard} from "./welcome/guard/auth.guard";
 
 const routes: Routes = [
   {path: 'reclamation', loadChildren : () => import('./reclamation/reclamation.module').then(m=>m.ReclamationModule)},
@@ -26,8 +27,21 @@ const routes: Routes = [
   },
   {
    path: 'payment', component: AddPaymentComponent
-  }
+  },
+  {
+    path:'user',
+    loadChildren:() =>
+      import('./login/login.module').then((u) => u.LoginModule),
+  },
+  {
+    path:'welcome',
+    loadChildren:() =>
+      import('./welcome/welcome.module').then((u) => u.WelcomeModule,
+      //, canActivate: [AuthGuard]// ),
+    ),
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
