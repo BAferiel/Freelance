@@ -214,7 +214,7 @@
                     <label for="exampleInputPassword1">Image</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="image" [(ngModel)]="servicefa.image" #img="ngModel" placeholder="image" required>
                 </div>
-                <button  class="btn btn-primary" (click)=" addService()" [disabled]="f.invalid">Submit</button>
+                <button  class="btn btn-primary" (click)=" addService()" [disabled]="f.invalid" [routerLink]="['/list']">Submit</button>
             </form>
 
         </div>

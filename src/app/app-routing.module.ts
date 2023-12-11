@@ -29,7 +29,7 @@ const routes: Routes = [
    path: 'payment', component: AddPaymentComponent
   },
   {
-    path:'user',
+    path:'',
     loadChildren:() =>
       import('./login/login.module').then((u) => u.LoginModule),
   },
